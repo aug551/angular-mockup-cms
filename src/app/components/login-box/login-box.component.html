@@ -1,6 +1,9 @@
 <div class="login-box">
     <!-- Value: {{email.value}} | {{password.value}} -->
-    <div class="form-container">
+    <form class="form-container" [formGroup]="this.loginForm">
+        <div *ngIf="this.invalidAccount">
+            <p style="color: red; text-align: center;">Incorrect email or password.</p>
+        </div>
         <mat-form-field appearance="outline">
             <mat-label>E-mail &nbsp;<i class="fa-regular fa-envelope"></i></mat-label>
             <input matInput type="text" name="login-email" id="login-email" placeholder="abc@example.com"
@@ -19,8 +22,8 @@
             <a href="javascript:void();">Forgot password?</a>
         </div>
 
-        <button mat-raised-button color="primary">Submit</button>
-    </div>
+        <button mat-raised-button color="primary" (click)="this.login()" [disabled]="">Submit</button>
+    </form>
 
     <mat-divider></mat-divider>
 

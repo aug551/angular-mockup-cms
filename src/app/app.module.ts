@@ -9,11 +9,20 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDividerModule } from '@angular/material/divider';
+import { LayoutComponent } from './components/layout/layout.component';
+import { HomepageComponent } from './components/homepage/homepage.component';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatListModule } from '@angular/material/list';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { MatTable, MatTableModule } from '@angular/material/table'
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginBoxComponent,
+    LayoutComponent,
+    HomepageComponent,
+    DashboardComponent,
   ],
   imports: [
     BrowserModule,
@@ -22,7 +31,10 @@ import { MatDividerModule } from '@angular/material/divider';
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
-    MatDividerModule
+    MatDividerModule,
+    MatSidenavModule,
+    MatListModule,
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]

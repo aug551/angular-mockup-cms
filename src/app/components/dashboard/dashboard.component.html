@@ -1,0 +1,64 @@
+<div class="dashboard-container">
+    <div class="user-profile-container">
+        <div class="title-container">
+            <h2>User Information</h2>
+        </div>
+
+        <div class="user-info-container">
+            <div class="info"><span class="field">ID:</span><span class="value">{{this.user.id}}</span></div>
+            <div class="info"><span class="field">First name:</span><span class="value">{{this.user.firstName}}</span>
+            </div>
+            <div class="info"><span class="field">Last name:</span><span class="value">{{this.user.lastName}}</span>
+            </div>
+            <div class="info"><span class="field">Phone number:</span><span
+                    class="value">{{this.user.phone_number}}</span></div>
+            <div class="info"><span class="field">Building:</span><span class="value">{{this.user.building}}</span>
+            </div>
+            <div class="info"><span class="field">Unit:</span><span class="value">{{this.user.unit}}</span></div>
+        </div>
+
+        <div class="request-edit">
+            <a href="javascript:void(0);">
+                <h2>Edit <i class="fa-solid fa-pencil"></i></h2>
+            </a>
+        </div>
+    </div>
+
+    <div class="other-container">
+        <div class="announcements-container">
+            <h2>Announcements</h2>
+            <ul>
+                <li>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Odit, omnis consequuntur? Dolores deserunt
+                    autem at.</li>
+                <li>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Odit, omnis consequuntur? Dolores deserunt
+                    autem at.</li>
+                <li>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Odit, omnis consequuntur? Dolores deserunt
+                    autem at.</li>
+            </ul>
+        </div>
+
+        <div class="services-container">
+            <h2>Services</h2>
+            <table mat-table [dataSource]="dataSource">
+                <ng-container matColumnDef="number">
+                    <th mat-header-cell *matHeaderCellDef>Number</th>
+                    <td mat-cell *matCellDef="let case"><a href="javascript:void(0)">{{case.number}}</a></td>
+                </ng-container>
+
+                <ng-container matColumnDef="short_description">
+                    <th mat-header-cell *matHeaderCellDef>Short Description</th>
+                    <td mat-cell *matCellDef="let case">{{case.short_description}}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="status">
+                    <th mat-header-cell *matHeaderCellDef>Status</th>
+                    <td mat-cell *matCellDef="let case">{{case.status}}</td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+        </div>
+    </div>
+
+</div>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { User, UsersService } from 'src/app/services/users.service';
 
 @Component({
   selector: 'app-login-box',
@@ -7,13 +8,23 @@ import { FormControl, Validators } from '@angular/forms';
   styleUrls: ['./login-box.component.scss']
 })
 export class LoginBoxComponent implements OnInit {
+  loginForm!: FormGroup;
+  email = new FormControl(null, [Validators.required, Validators.email]);
+  password = new FormControl(null, [Validators.required]);
+  invalidAccount = false;
+  user!: User;
 
-  email = new FormControl('', [Validators.required, Validators.email]);
-  password = new FormControl('', [Validators.required]);
-
-  constructor() { }
+  constructor(private usersService: UsersService, private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
+    this.loginForm = this.formBuilder.group({
+      email: this.email,
+      password: this.password
+    });
+
+    this.usersService.getUser().subscribe((user) => {
+      this.user = user;
+    });
   }
 
   getEmailError() {
@@ -29,7 +40,16 @@ export class LoginBoxComponent implements OnInit {
   }
 
   getPasswordError() {
-    return this.password.hasError('required') ? "Password required." : '';
+    return this.password.hasError('required') ? 'Password required.' : '';
+  }
+
+  login() {
+    if (this.email.value === 'john.doe@example.com' && this.password.value === 'password') {
+      this.usersService.setUser();
+    }
+    else {
+      this.invalidAccount = true;
+    }
   }
 
 }

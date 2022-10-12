@@ -1,0 +1,41 @@
+<div class="homepage">
+    <div class="nav-bar">
+        <a href="javascript:void(0);" (click)="this.activeElement = 1">
+            <h1 class="nav-title">(App Name)</h1>
+        </a>
+        <a href="">Log out</a>
+    </div>
+    <mat-drawer-container class=" homepage-container">
+        <mat-drawer id="snav" mode="side" [ngClass]="this.navClass" class="side-nav"
+            (mouseleave)="setNavClass('closed')">
+            <div class="side-nav-link" [ngClass]="(this.activeElement == 1) ? 'active' : ''"
+                (mouseenter)="setNavClass('opened')" (click)="this.activeElement = 1">
+
+                <a href="javascript:void(0);"><span class="title">Overview</span><span class="icon"><i
+                            class="fa-regular fa-eye"></i></span></a>
+
+            </div>
+            <div class="side-nav-link" [ngClass]="(this.activeElement == 2) ? 'active' : ''"
+                (mouseenter)="setNavClass('opened')" (click)="this.activeElement = 2">
+                <a href="javascript:void(0);"><span class="title">Services</span><span class="icon"><i
+                            class="fa-solid fa-list"></i></span></a>
+            </div>
+            <div class="side-nav-link" [ngClass]="(this.activeElement == 3) ? 'active' : ''"
+                (mouseenter)="setNavClass('opened')" (click)="this.activeElement = 3">
+                <a href="javascript:void(0);"><span class="title">History</span><span class="icon"><i
+                            class="fa-solid fa-clock-rotate-left"></i></span></a>
+            </div>
+            <div class="side-nav-link" [ngClass]="(this.activeElement == 4) ? 'active' : ''"
+                (mouseenter)="setNavClass('opened')" (click)="this.activeElement = 4">
+                <a href="javascript:void(0);"><span class="title">Contact-Us</span><span class="icon"><i
+                            class="fa-solid fa-phone"></i></span></a>
+            </div>
+
+
+        </mat-drawer>
+
+        <mat-drawer-content style="margin-left: 60px;">
+            <app-dashboard *ngIf="this.activeElement == 1" [user]="this.user"></app-dashboard>
+        </mat-drawer-content>
+    </mat-drawer-container>
+</div>

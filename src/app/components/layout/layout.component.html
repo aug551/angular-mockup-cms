@@ -1,0 +1,12 @@
+<div class="login-page" *ngIf="!this.user.id">
+    <div class="login-container">
+        <div class="title-container">
+            <h1>(App title)</h1>
+        </div>
+        <app-login-box></app-login-box>
+    </div>
+</div>
+
+<div class="homepage-page" *ngIf="this.user.id">
+    <app-homepage [user]="this.user"></app-homepage>
+</div>

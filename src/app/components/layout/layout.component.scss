@@ -1,0 +1,27 @@
+.login-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100%;
+}
+
+.login-container {
+    border: 1.5px solid #D5D5D5;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .1),
+        0 8px 16px rgba(0, 0, 0, .1);
+    width: 45%;
+    max-width: 30em;
+    min-width: 15em;
+    padding: 2.5em;
+    margin: auto;
+
+    .title-container {
+        text-align: center;
+    }
+}
+
+.homepage-page {
+    height: 100vh;
+}
