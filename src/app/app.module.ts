@@ -14,7 +14,9 @@ import { HomepageComponent } from './components/homepage/homepage.component';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
-import { MatTable, MatTableModule } from '@angular/material/table'
+import { MatTableModule } from '@angular/material/table';
+import { ServicesComponent } from './components/services/services.component';
+import { MatExpansionModule } from '@angular/material/expansion';
 
 @NgModule({
   declarations: [
@@ -23,6 +25,7 @@ import { MatTable, MatTableModule } from '@angular/material/table'
     LayoutComponent,
     HomepageComponent,
     DashboardComponent,
+    ServicesComponent,
   ],
   imports: [
     BrowserModule,
@@ -34,7 +37,8 @@ import { MatTable, MatTableModule } from '@angular/material/table'
     MatDividerModule,
     MatSidenavModule,
     MatListModule,
-    MatTableModule
+    MatTableModule,
+    MatExpansionModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,13 +1,13 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { User } from 'src/app/services/users.service';
 
-interface Service {
+interface ActiveService {
   number: string,
   short_description: string,
   status: string
 }
 
-const servicesExample: Service[] = [
+const servicesExample: ActiveService[] = [
   { number: 'SRV001', short_description: 'Leaking sink', status: 'WIP' },
   { number: 'SRV012', short_description: 'Broken Window', status: 'Open' },
   { number: 'SRV111', short_description: 'Wall repaint', status: 'On Hold' },

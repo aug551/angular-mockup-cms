@@ -16,7 +16,24 @@ export type User = {
 })
 export class UsersService {
   user: BehaviorSubject<User> = new BehaviorSubject<User>({
+    id: 1,
+    email: 'john.doe@example.com',
+    firstName: 'John',
+    lastName: 'Doe',
+    phone_number: 1231231234,
+    building: 'Areve 1',
+    unit: '101',
   });
+
+  // user: BehaviorSubject<User> = new BehaviorSubject<User>({
+  //   id: 1,
+  //   email: 'john.doe@example.com',
+  //   firstName: 'John',
+  //   lastName: 'Doe',
+  //   phone_number: 1231231234,
+  //   building: 'Areve 1',
+  //   unit: '101',
+  // });
 
   constructor() { }
 
@@ -34,6 +51,13 @@ export class UsersService {
       phone_number: 1231231234,
       building: 'Areve 1',
       unit: '101',
+    }
+    this.user.next(tempUser);
+  }
+
+  logout(): void {
+    let tempUser: User = {
+
     }
     this.user.next(tempUser);
   }

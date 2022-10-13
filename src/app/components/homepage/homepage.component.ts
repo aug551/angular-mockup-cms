@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { User } from 'src/app/services/users.service';
+import { User, UsersService } from 'src/app/services/users.service';
 
 @Component({
   selector: 'app-homepage',
@@ -9,8 +9,8 @@ import { User } from 'src/app/services/users.service';
 export class HomepageComponent implements OnInit {
   @Input() user!: User;
   navClass = '';
-  activeElement = 1;
-  constructor() { }
+  activeElement = 2;
+  constructor(private usersService: UsersService) { }
 
   ngOnInit(): void {
   }
@@ -22,7 +22,10 @@ export class HomepageComponent implements OnInit {
         this.navClass = c;
       }, 115);
     }
+  }
 
+  logout(): void {
+    this.usersService.logout();
   }
 
 }

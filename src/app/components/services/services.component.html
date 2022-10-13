@@ -1,0 +1,32 @@
+<div class="intro">
+    <h2>Services</h2>
+    <p>Choose a service to start a case.</p>
+</div>
+
+<div class="services-list-container">
+    <div class="services-category category" id="{{category}}" *ngFor="let category of this.categoriesExample">
+        <mat-accordion>
+            <mat-expansion-panel [expanded]="true" (opened)="this.setCategoryActive(category.name)"
+                (closed)="this.setCategoryInactive(category.name)">
+                <mat-expansion-panel-header class="services-title-header">
+                    <mat-panel-title>
+                        <b>{{category.name}}</b>
+                    </mat-panel-title>
+                    <mat-panel-description>
+                        {{category.description}}
+                    </mat-panel-description>
+                </mat-expansion-panel-header>
+                <div class="services-container">
+                    <ng-container *ngFor="let service of servicesExample">
+                        <div *ngIf="service.category.includes(categoriesExample.indexOf(category))" class="service">
+                            <h3>{{service.name}}</h3>
+                            <p>{{service.description}}</p>
+                            <button mat-raised-button color="primary">Request A Service</button>
+                        </div>
+                    </ng-container>
+                </div>
+
+            </mat-expansion-panel>
+        </mat-accordion>
+    </div>
+</div>

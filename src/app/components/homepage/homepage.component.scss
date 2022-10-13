@@ -1,25 +1,28 @@
 .nav-bar {
     background-color: #3700B3;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 
-    a {
+    .app-title,
+    .logout-btn {
         text-decoration: none;
-        width: 50%;
+        padding: 15px;
+        color: #fff;
+        font-size: 32px;
+        font-weight: 600;
     }
 
-    h1 {
-        padding-top: 15px;
-        color: #fff;
+    .logout-btn:hover {
+        color: red;
     }
+
 }
 
 
 .active {
     background-color: #c5cae9;
 }
-
-
-
-
 
 
 @keyframes open-nav {

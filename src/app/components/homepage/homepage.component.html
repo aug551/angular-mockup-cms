@@ -1,9 +1,8 @@
 <div class="homepage">
     <div class="nav-bar">
-        <a href="javascript:void(0);" (click)="this.activeElement = 1">
-            <h1 class="nav-title">(App Name)</h1>
-        </a>
-        <a href="">Log out</a>
+        <a class="app-title" href="javascript:void(0);" (click)="this.activeElement = 1">(App Name)</a>
+        <a class="logout-btn" href="javascript:void(0);" (click)="this.logout()"><i
+                class="fa-solid fa-power-off"></i></a>
     </div>
     <mat-drawer-container class=" homepage-container">
         <mat-drawer id="snav" mode="side" [ngClass]="this.navClass" class="side-nav"
@@ -36,6 +35,8 @@
 
         <mat-drawer-content style="margin-left: 60px;">
             <app-dashboard *ngIf="this.activeElement == 1" [user]="this.user"></app-dashboard>
+            <app-services *ngIf="this.activeElement == 2" [user]="this.user"></app-services>
         </mat-drawer-content>
+
     </mat-drawer-container>
 </div>
