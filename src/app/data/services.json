@@ -1,0 +1,108 @@
+{
+    "categories": [
+        {
+            "id": 1000,
+            "name": "CLEANING",
+            "description": "Cleaning services"
+        },
+        {
+            "id": 2000,
+            "name": "MAINTENANCE",
+            "description": "Maintenance services"
+        },
+        {
+            "id": 3000,
+            "name": "REPAIR",
+            "description": "Repair services"
+        },
+        {
+            "id": 4000,
+            "name": "OTHER",
+            "description": "Other services"
+        }
+    ],
+    "services": [
+        {
+            "id": 1,
+            "name": "General Cleaning",
+            "category": [
+                1000
+            ],
+            "description": "General cleaning for homes."
+        },
+        {
+            "id": 2,
+            "name": "Big Furniture Discarding/Moving",
+            "category": [
+                1000
+            ],
+            "description": "For help with throwing out big items, furnitures."
+        },
+        {
+            "id": 3,
+            "name": "Laundry/Washing",
+            "category": [
+                1000
+            ],
+            "description": "For big loads of laundry or carpet cleaning."
+        },
+        {
+            "id": 4,
+            "name": "Electrical/Wiring",
+            "category": [
+                2000
+            ],
+            "description": "For help with wiring or electrical sockets (lights, plugs, etc)."
+        },
+        {
+            "id": 5,
+            "name": "Appliance Installation/Repair",
+            "category": [
+                2000,
+                3000
+            ],
+            "description": "Help with installing a new appliance (refrigerator, dishwasher, stove, etc.)"
+        },
+        {
+            "id": 6,
+            "name": "Wall Painting",
+            "category": [
+                2000,
+                3000
+            ],
+            "description": "For painting or repainting"
+        },
+        {
+            "id": 7,
+            "name": "Wall Repair",
+            "category": [
+                3000
+            ],
+            "description": "Dry wall, insulation, etc."
+        },
+        {
+            "id": 8,
+            "name": "General repair",
+            "category": [
+                3000
+            ],
+            "description": "Repair for anything: windows, ceiling, flooring, etc."
+        },
+        {
+            "id": 9,
+            "name": "Other",
+            "category": [
+                4000
+            ],
+            "description": "Other services"
+        },
+        {
+            "id": 10,
+            "name": "Suggestion",
+            "category": [
+                4000
+            ],
+            "description": "Suggest a service to be added to the list."
+        }
+    ]
+}

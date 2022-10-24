@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable, BehaviorSubject } from 'rxjs';
+import users from '../data/users.json';
 
 export type User = {
   id?: number,
@@ -7,6 +8,7 @@ export type User = {
   lastName?: string,
   phone_number?: number,
   email?: string,
+  password?: string,
   building?: string,
   unit?: string
 }
@@ -18,6 +20,7 @@ export class UsersService {
   user: BehaviorSubject<User> = new BehaviorSubject<User>({
     id: 1,
     email: 'john.doe@example.com',
+    password: 'password',
     firstName: 'John',
     lastName: 'Doe',
     phone_number: 1231231234,
@@ -41,18 +44,19 @@ export class UsersService {
     return this.user.asObservable();
   }
 
-  setUser(): void {
-    // for demo purposes
-    let tempUser: User = {
-      id: 1,
-      email: 'john.doe@example.com',
-      firstName: 'John',
-      lastName: 'Doe',
-      phone_number: 1231231234,
-      building: 'Areve 1',
-      unit: '101',
-    }
-    this.user.next(tempUser);
+  setUser(user: User): void {
+    // // for demo purposes
+    // let tempUser: User = {
+    //   id: 1,
+    //   email: 'john.doe@example.com',
+    //   firstName: 'John',
+    //   lastName: 'Doe',
+    //   phone_number: 1231231234,
+    //   building: 'Areve 1',
+    //   unit: '101',
+    // }
+    // this.user.next(tempUser);
+    this.user.next(user);
   }
 
   logout(): void {
@@ -60,6 +64,21 @@ export class UsersService {
 
     }
     this.user.next(tempUser);
+  }
+
+  login(email: string, password: string): User | undefined {
+    let loggedUser;
+
+    for (let user of users.users) {
+      if (user.email === email && user.password === password) {
+        loggedUser = user;
+        this.setUser(user);
+        break;
+      }
+    }
+
+    return loggedUser;
+
   }
 
 }

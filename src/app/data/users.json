@@ -1,0 +1,24 @@
+{
+    "users": [
+        {
+            "id": 1,
+            "email": "john.doe@example.com",
+            "password": "password",
+            "firstName": "John",
+            "lastName": "Doe",
+            "phone_number": 1231231234,
+            "building": "Areve 1",
+            "unit": "101"
+        },
+        {
+            "id": 2,
+            "email": "aaron.cruz@virtualdna.ca",
+            "password": "password",
+            "firstName": "Aaron",
+            "lastName": "Cruz",
+            "phone_number": 1231231234,
+            "building": "Areve 1",
+            "unit": "102"
+        }
+    ]
+}

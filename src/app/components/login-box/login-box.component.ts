@@ -23,6 +23,7 @@ export class LoginBoxComponent implements OnInit {
     });
 
     this.usersService.getUser().subscribe((user) => {
+      console.log(user);
       this.user = user;
     });
   }
@@ -44,12 +45,7 @@ export class LoginBoxComponent implements OnInit {
   }
 
   login() {
-    if (this.email.value === 'john.doe@example.com' && this.password.value === 'password') {
-      this.usersService.setUser();
-    }
-    else {
-      this.invalidAccount = true;
-    }
+    this.usersService.login(String(this.email.value), String(this.password.value))
   }
 
 }

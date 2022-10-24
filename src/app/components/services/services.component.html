@@ -4,7 +4,7 @@
 </div>
 
 <div class="services-list-container">
-    <div class="services-category category" id="{{category}}" *ngFor="let category of this.categoriesExample">
+    <div class="services-category category" id="{{category}}" *ngFor="let category of this.categories">
         <mat-accordion>
             <mat-expansion-panel [expanded]="true" (opened)="this.setCategoryActive(category.name)"
                 (closed)="this.setCategoryInactive(category.name)">
@@ -17,11 +17,12 @@
                     </mat-panel-description>
                 </mat-expansion-panel-header>
                 <div class="services-container">
-                    <ng-container *ngFor="let service of servicesExample">
-                        <div *ngIf="service.category.includes(categoriesExample.indexOf(category))" class="service">
+                    <ng-container *ngFor="let service of services">
+                        <div *ngIf="service.category.includes(category.id)" class="service">
                             <h3>{{service.name}}</h3>
                             <p>{{service.description}}</p>
-                            <button mat-raised-button color="primary">Request A Service</button>
+                            <button (click)="openCase(service, this.user)" mat-raised-button color="primary">Request A
+                                Service</button>
                         </div>
                     </ng-container>
                 </div>

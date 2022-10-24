@@ -1,0 +1,54 @@
+{
+    "contractors": [
+        {
+            "id": 101,
+            "name": "Aaron",
+            "companyName": "Best Cleaners",
+            "services": [
+                1,
+                2,
+                3
+            ]
+        },
+        {
+            "id": 102,
+            "companyName": "Dry Cleaning MTL",
+            "services": [
+                3
+            ]
+        },
+        {
+            "id": 103,
+            "companyName": "Mover Removers",
+            "services": [
+                2
+            ]
+        },
+        {
+            "id": 104,
+            "companyName": "514 Electricians",
+            "services": [
+                4,
+                5
+            ]
+        },
+        {
+            "id": 105,
+            "companyName": "General Contractors",
+            "services": [
+                2,
+                6,
+                7,
+                8,
+                9
+            ]
+        },
+        {
+            "id": 106,
+            "companyName": "Painting Arts",
+            "services": [
+                6
+            ]
+        }
+    ]
+}

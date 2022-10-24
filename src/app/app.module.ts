@@ -1,7 +1,8 @@
+// Dependencies
+
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule } from '@angular/forms';
-
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginBoxComponent } from './components/login-box/login-box.component';
@@ -17,6 +18,10 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { MatTableModule } from '@angular/material/table';
 import { ServicesComponent } from './components/services/services.component';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { MatDialogModule } from '@angular/material/dialog';
+import { ServiceFormComponent } from './components/dialogs/service-form/service-form.component'
+import { MatSelectModule } from '@angular/material/select';
+
 
 @NgModule({
   declarations: [
@@ -26,6 +31,7 @@ import { MatExpansionModule } from '@angular/material/expansion';
     HomepageComponent,
     DashboardComponent,
     ServicesComponent,
+    ServiceFormComponent,
   ],
   imports: [
     BrowserModule,
@@ -38,7 +44,9 @@ import { MatExpansionModule } from '@angular/material/expansion';
     MatSidenavModule,
     MatListModule,
     MatTableModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatDialogModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]
