@@ -1,0 +1,44 @@
+{
+    "cases": [
+        {
+            "id": "SRV00001",
+            "requestedBy": 1,
+            "typeOfService": 1,
+            "assignedContractors": 101,
+            "building": "Areve 1",
+            "unit": "101",
+            "description": "I need a service for general house cleaning.",
+            "status": "WIP"
+        },
+        {
+            "id": "SRV00002",
+            "requestedBy": 1,
+            "typeOfService": 5,
+            "assignedContractors": 104,
+            "building": "Areve 1",
+            "unit": "101",
+            "description": "I need a contractor to come install my refrigerator.",
+            "status": "Open"
+        },
+        {
+            "id": "SRV00003",
+            "requestedBy": 1,
+            "typeOfService": 7,
+            "assignedContractors": 105,
+            "building": "Areve 1",
+            "unit": "101",
+            "description": "I need someone to repair my drywall.",
+            "status": "On Hold"
+        },
+        {
+            "id": "SRV00004",
+            "requestedBy": 2,
+            "typeOfService": 5,
+            "assignedContractors": 104,
+            "building": "Areve 1",
+            "unit": "102",
+            "description": "There is a problem with my stove.",
+            "status": "Canceled"
+        }
+    ]
+}

@@ -1,47 +1,63 @@
 <div class="dialog-container">
     <h1 mat-dialog-title>Request a service or repair</h1>
+    <p>Ensure that your information is correct, then fill the description box. Please describe the issue as best as
+        possible.</p>
+
+    <br />
+
+    <hr />
+
+    <br />
+
     <div mat-dialog-content class="service-form-container">
-        <div class="field-row">
-            <mat-form-field appearance="fill" class="form-field">
-                <mat-label>Requested by</mat-label>
-                <input matInput type="text" readonly value="{{this.data.user.firstName}} {{this.data.user.lastName}}">
-            </mat-form-field>
-            <mat-form-field appearance="fill" class="form-field">
-                <mat-label>Building</mat-label>
-                <input matInput type="text" readonly value="{{this.data.user.building}}">
-            </mat-form-field>
-        </div>
+        <form class="form-container" [formGroup]="this.caseForm" (ngSubmit)="this.caseForm.valid && this.submitCase()">
+            <div class="field-row">
+                <mat-form-field appearance="fill" class="form-field">
+                    <mat-label>Requested by</mat-label>
+                    <input matInput type="text" readonly [formControl]="requestedBy" />
+                </mat-form-field>
+                <mat-form-field appearance="fill" class="form-field">
+                    <mat-label>Building</mat-label>
+                    <input matInput type="text" readonly [formControl]="building">
+                </mat-form-field>
+            </div>
 
-        <div class="field-row">
-            <mat-form-field appearance="fill" class="form-field">
-                <mat-label>Type of Service</mat-label>
-                <input matInput type="text" readonly value="{{this.data.service.name}}">
-            </mat-form-field>
+            <div class="field-row">
+                <mat-form-field appearance="fill" class="form-field">
+                    <mat-label>Type of Service</mat-label>
+                    <input matInput type="text" readonly [formControl]="serviceType">
+                </mat-form-field>
 
-            <mat-form-field appearance="fill" class="form-field">
-                <mat-label>Unit</mat-label>
-                <input matInput type="text" readonly value="{{this.data.user.unit}}">
-            </mat-form-field>
-        </div>
+                <mat-form-field appearance="fill" class="form-field">
+                    <mat-label>Unit</mat-label>
+                    <input matInput type="text" readonly [formControl]="unit">
+                </mat-form-field>
+            </div>
 
-        <div class="field-row">
-            <mat-form-field appearance="fill" class="form-field">
-                <mat-label>Assigned Contractor</mat-label>
-                <mat-select [(value)]="selectedContractor">
-                    <mat-option [value]="0" selected="selected">Assign Recommended</mat-option>
-                    <mat-option *ngFor="let contractor of this.contractors" [value]="contractor.id">
-                        {{contractor.companyName}}
-                    </mat-option>
-                </mat-select>
-            </mat-form-field>
-            <div class="formatter"></div>
-        </div>
+            <div class="field-row">
+                <mat-form-field appearance="fill" class="form-field">
+                    <mat-label>Assigned Contractor</mat-label>
+                    <mat-select [formControl]="assignedContractor">
+                        <mat-option [value]="0" selected="selected">Assign Recommended</mat-option>
+                        <mat-option *ngFor="let contractor of this.contractors" [value]="contractor.id">
+                            {{contractor.companyName}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <div class="formatter"></div>
+            </div>
 
-        <div class="field-row">
-            <mat-form-field appearance="fill" class="form-field full-width">
-                <mat-label>Provide additional description</mat-label>
-                <textarea matInput></textarea>
-            </mat-form-field>
-        </div>
+            <div class="field-row">
+                <mat-form-field appearance="fill" class="form-field full-width">
+                    <mat-label>Provide additional description</mat-label>
+                    <textarea matInput aria-required="true" [formControl]="description"></textarea>
+                </mat-form-field>
+            </div>
+
+            <div class="field-row">
+                <button mat-raised-button color="primary" type="submit">Submit</button>
+            </div>
+        </form>
+
     </div>
 </div>

@@ -9,7 +9,7 @@ import { User, UsersService } from 'src/app/services/users.service';
 export class HomepageComponent implements OnInit {
   @Input() user!: User;
   navClass = '';
-  activeElement = 2;
+  activeElement = 1;
   constructor(private usersService: UsersService) { }
 
   ngOnInit(): void {
