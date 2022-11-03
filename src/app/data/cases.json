@@ -8,7 +8,8 @@
             "building": "Areve 1",
             "unit": "101",
             "description": "I need a service for general house cleaning.",
-            "status": "WIP"
+            "status": "WIP",
+            "journal": []
         },
         {
             "id": "SRV00002",
@@ -18,7 +19,8 @@
             "building": "Areve 1",
             "unit": "101",
             "description": "I need a contractor to come install my refrigerator.",
-            "status": "Open"
+            "status": "Open",
+            "journal": []
         },
         {
             "id": "SRV00003",
@@ -28,7 +30,9 @@
             "building": "Areve 1",
             "unit": "101",
             "description": "I need someone to repair my drywall.",
-            "status": "On Hold"
+            "status": "On Hold",
+            "on-hold-reason": "Cannot reach client.",
+            "journal": []
         },
         {
             "id": "SRV00004",
@@ -38,7 +42,8 @@
             "building": "Areve 1",
             "unit": "102",
             "description": "There is a problem with my stove.",
-            "status": "Canceled"
+            "status": "Canceled",
+            "journal": []
         }
     ]
 }

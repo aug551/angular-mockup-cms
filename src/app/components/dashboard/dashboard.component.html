@@ -6,19 +6,32 @@
 
         <div class="user-info-container">
             <div class="info"><span class="field">ID:</span><span class="value">{{this.user.id}}</span></div>
-            <div class="info"><span class="field">First name:</span><span class="value">{{this.user.firstName}}</span>
+            <div class="info"><span class="field">First name:</span><span class="value">{{this.user.firstName}}<span
+                        class="changed"
+                        *ngIf="this.changeRequested.firstName">&nbsp;({{this.changeRequested.firstName}})</span></span>
             </div>
-            <div class="info"><span class="field">Last name:</span><span class="value">{{this.user.lastName}}</span>
+            <div class="info"><span class="field">Last name:</span><span class="value">{{this.user.lastName}}<span
+                        class="changed"
+                        *ngIf="this.changeRequested.lastName">&nbsp;({{this.changeRequested.lastName}})</span></span>
             </div>
             <div class="info"><span class="field">Phone number:</span><span
-                    class="value">{{this.user.phone_number}}</span></div>
-            <div class="info"><span class="field">Building:</span><span class="value">{{this.user.building}}</span>
+                    class="value">{{this.user.phone_number}}<span class="changed"
+                        *ngIf="this.changeRequested.phone_number">&nbsp;({{this.changeRequested.phone_number}})</span></span>
             </div>
-            <div class="info"><span class="field">Unit:</span><span class="value">{{this.user.unit}}</span></div>
+            <div class="info"><span class="field">Building:</span><span class="value">{{this.user.building}}<span
+                        class="changed"
+                        *ngIf="this.changeRequested.building">&nbsp;({{this.changeRequested.building}})</span></span>
+            </div>
+            <div class="info"><span class="field">Unit:</span><span class="value">{{this.user.unit}}<span
+                        class="changed"
+                        *ngIf="this.changeRequested.unit">&nbsp;({{this.changeRequested.unit}})</span></span>
+            </div>
+            <div class="changed" style="text-align: left; padding-left: 15px;" *ngIf="this.hasChanges">
+                * Changes pending</div>
         </div>
 
         <div class="request-edit">
-            <a href="javascript:void(0);">
+            <a href="javascript:void(0);" (click)="editUser()">
                 <h2>Edit <i class="fa-solid fa-pencil"></i></h2>
             </a>
         </div>
@@ -56,7 +69,8 @@
                 </ng-container>
 
                 <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="openCaseSummary(row)"
+                    class="caseRow"></tr>
             </table>
         </div>
     </div>

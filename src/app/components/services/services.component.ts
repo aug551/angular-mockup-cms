@@ -46,7 +46,7 @@ export class ServicesComponent implements OnInit {
 
   openCase(service: Service, user: User) {
     const dialogRef = this.dialog.open(ServiceFormComponent, {
-      width: '50%',
+      width: '60%',
       data: { service, user }
     });
 

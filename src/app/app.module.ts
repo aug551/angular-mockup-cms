@@ -21,6 +21,8 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { MatDialogModule } from '@angular/material/dialog';
 import { ServiceFormComponent } from './components/dialogs/service-form/service-form.component'
 import { MatSelectModule } from '@angular/material/select';
+import { UserProfileDialogComponent } from './components/dialogs/user-profile-dialog/user-profile-dialog.component';
+import { ServiceSummaryDialogComponent } from './components/dialogs/service-summary-dialog/service-summary-dialog.component';
 
 
 @NgModule({
@@ -32,6 +34,8 @@ import { MatSelectModule } from '@angular/material/select';
     DashboardComponent,
     ServicesComponent,
     ServiceFormComponent,
+    UserProfileDialogComponent,
+    ServiceSummaryDialogComponent,
   ],
   imports: [
     BrowserModule,

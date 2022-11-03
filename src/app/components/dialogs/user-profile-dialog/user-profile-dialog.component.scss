@@ -1,0 +1,24 @@
+.dialog-container {
+    max-height: 95%;
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+
+    .row {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+
+        .form-field,
+        .placeholder {
+            width: 45%;
+        }
+    }
+
+    .row:last-child {
+        margin-bottom: 10px;
+    }
+}
