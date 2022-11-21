@@ -30,4 +30,8 @@ export class ContractorsService {
   getContractors(): Observable<Contractor[]> {
     return this.contractors.asObservable();
   }
+
+  getContractorById(contractorId: number): Contractor {
+    return contractorsdata.contractors.find(contractor => contractor.id = contractorId) as Contractor;
+  }
 }

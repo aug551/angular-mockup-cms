@@ -33,4 +33,8 @@ export class ServicesService {
   getServices(): Observable<Service[]> {
     return this.services.asObservable();
   }
+
+  getServiceById(serviceId: number): Service {
+    return servicesdata.services.find(service => service.id = serviceId) as Service;
+  }
 }

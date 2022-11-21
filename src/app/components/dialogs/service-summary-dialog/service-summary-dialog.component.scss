@@ -1,0 +1,73 @@
+.title-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: baseline;
+    padding-right: 5px;
+
+    h1 {
+        padding-left: 5px;
+
+    }
+
+    .fa-xmark {
+        font-size: 24px;
+        line-height: 32px;
+        color: red;
+    }
+}
+
+.case-summary-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    margin-top: 2em;
+
+    .row {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .field-container {
+        width: 48%;
+        padding: 5px 10px;
+
+        .field-title {
+            font-weight: bold;
+            font-size: 1.2rem;
+            line-height: 2rem;
+        }
+    }
+
+    .field-container:only-child {
+        width: 100%;
+    }
+
+    .field-container:has([for="description"]) {
+        .field-value {
+            min-height: 4rem;
+        }
+    }
+
+    .comment-container {
+        padding: 5px 10px;
+        border: 1px solid #D5D5D5;
+        border-radius: 7px;
+
+        .comment-heading {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            width: 100%;
+
+            font-weight: 500;
+            font-size: 1rem;
+            line-height: 2rem;
+
+            .from-label {
+                font-style: italic;
+            }
+        }
+    }
+}

@@ -1,1 +1,106 @@
-<p>service-summary-dialog works!</p>
+<div class="dialog-container">
+    <div mat-dialog-title class="title-container">
+        <h1>{{this.data.case.id}}</h1>
+        <a href="javascript:void(0)" (click)="this.dialogRef.close()"><i class="fa-solid fa-xmark"></i></a>
+    </div>
+
+    <hr />
+
+    <div mat-dialog-content class="case-summary-container">
+        <div class="row">
+            <div class="field-container">
+                <div class="field-title">
+                    <label for="requested-by">Requested by</label>
+                </div>
+                <div class="field-value">
+                    <span>{{this.requestedBy.firstName}} {{this.requestedBy.lastName}}</span>
+                </div>
+            </div>
+            <div class="field-container">
+                <div class="field-title">
+                    <label for="typeOfService">Type of service</label>
+                </div>
+                <div class="field-value">
+                    <span>{{this.typeOfService.name}}</span>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row">
+
+            <div class="field-container">
+                <div class="field-title">
+                    <label for="assignedContractors">Assigned Contractors</label>
+                </div>
+                <div class="field-value">
+                    <span>{{this.assignedContractors.name}}</span>
+                </div>
+            </div>
+            <div class="field-container">
+                <div class="field-title">
+                    <label for="building">Building</label>
+                </div>
+                <div class="field-value">
+                    <span>{{this.data.case.building}}</span>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row">
+
+            <div class="field-container">
+                <div class="field-title">
+                    <label for="unit">Unit No.</label>
+                </div>
+                <div class="field-value">
+                    <span>{{this.data.case.unit}}</span>
+                </div>
+            </div>
+            <div class="field-container">
+                <div class="field-title">
+                    <label for="status">Work status</label>
+                </div>
+                <div class="field-value">
+                    <span>{{this.data.case.status}}</span>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row">
+            <div class="field-container">
+                <div class="field-title">
+                    <label for="description">Description</label>
+                </div>
+                <div class="field-value">
+                    <span>{{this.data.case.description}}</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="field-container">
+            <div class="field-title">
+                <label for="comments">Comments</label>
+            </div>
+        </div>
+
+        <div class="comment-container" *ngFor="let comment of this.comments">
+            <div class="comment-heading">
+                <div class="from-label">
+                    <label for="comment_from">{{this.getCommentByName(comment.created_by)}} commented</label>
+                </div>
+
+                <div class="date-label">
+                    <label for="comment_on">{{comment.created_on}}</label>
+                </div>
+            </div>
+            <div class="comment-content">
+                <label for="comment-text">{{comment.comment}}</label>
+            </div>
+        </div>
+
+
+    </div>
+</div>

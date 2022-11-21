@@ -44,6 +44,11 @@ export class UsersService {
     return this.user.asObservable();
   }
 
+  getUserById(userId: number): User {
+    return users.users.find(user => user.id = userId) as User;
+  }
+
+
   setUser(user: User): void {
     // // for demo purposes
     // let tempUser: User = {

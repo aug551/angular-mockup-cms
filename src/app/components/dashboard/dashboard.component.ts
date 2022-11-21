@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { CaseService } from 'src/app/services/case/case.service';
-import { User } from 'src/app/services/users.service';
+import { Case, CaseService } from 'src/app/services/case/case.service';
+import { User, UsersService } from 'src/app/services/users.service';
 import { ServiceSummaryDialogComponent } from '../dialogs/service-summary-dialog/service-summary-dialog.component';
 import { UserProfileDialogComponent } from '../dialogs/user-profile-dialog/user-profile-dialog.component';
 
@@ -21,6 +21,13 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(): void {
     this.dataSource = this.casesService.getCasesByRequestedUser(this.user.id!);
+    console.log(this.dataSource[0].id.substring(3));
+    this.dataSource.sort((a: Case, b: Case) => {
+      let case1 = parseInt(a.id.substring(3));
+      let case2 = parseInt(b.id.substring(3));
+
+      return case2 - case1;
+    });
   }
 
   displayedColumns: string[] = ['number', 'short_description', 'status']
