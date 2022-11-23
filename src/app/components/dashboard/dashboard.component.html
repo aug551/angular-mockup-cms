@@ -52,7 +52,8 @@
 
         <div class="services-container">
             <h2>Services</h2>
-            <app-services-table [user]="this.user" [displayedColumns]="['number', 'short_description', 'status']">
+            <app-services-table [user]="this.user" [displayedColumns]="['number', 'short_description', 'status']"
+                [limit]="3">
             </app-services-table>
         </div>
     </div>

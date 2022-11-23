@@ -11,8 +11,11 @@ import { ServiceSummaryDialogComponent } from '../dialogs/service-summary-dialog
 })
 export class ServicesTableComponent {
   @Input() user!: User;
+  @Input() limit: number = -1;
   @Input() displayedColumns!: string[];
+
   dataSource: any;
+  casesToShow = [];
 
   constructor(private casesService: CaseService, public dialog: MatDialog) {
   }
@@ -25,6 +28,8 @@ export class ServicesTableComponent {
 
       return case2 - case1;
     });
+
+    this.casesToShow = (this.limit == -1) ? this.dataSource : (this.dataSource as Array<Case>).slice(0, this.limit);
   }
 
   openCaseSummary(_case: any) {

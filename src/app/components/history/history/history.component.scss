@@ -1,0 +1,12 @@
+.history-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding-top: 1em;
+
+    .table-container {
+        margin-top: 1em;
+        width: 100%;
+    }
+}

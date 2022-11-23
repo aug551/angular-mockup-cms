@@ -28,4 +28,8 @@ export class HomepageComponent implements OnInit {
     this.usersService.logout();
   }
 
+  navigateToPage($event: number) {
+    this.activeElement = $event;
+  }
+
 }

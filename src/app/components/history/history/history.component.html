@@ -1,2 +1,10 @@
-<app-services-table [user]="this.user"
-    [displayedColumns]="['number', 'short_description', 'status', 'created_date', 'updated_date']"></app-services-table>
+<div class="history-container">
+    <button mat-raised-button color="primary" (click)="goToServices()">New Case</button>
+
+    <div class="table-container">
+        <app-services-table [user]="this.user"
+            [displayedColumns]="['number', 'short_description', 'status', 'created_date', 'updated_date']">
+        </app-services-table>
+    </div>
+
+</div>
