@@ -48,9 +48,15 @@ export class ServiceFormComponent implements OnInit {
   }
 
   submitCase() {
+    let today = new Date().getTime();
+
+    if (this.assignedContractor.value == 0) {
+      this.assignedContractor.setValue(this.contractors[0].id);
+    }
+
     this.casesService.addCase(this.data.user.id!, this.data.service.id,
       this.assignedContractor.value as number, this.building.value as string, this.unit.value as string,
-      this.description.value as string, "Open");
+      this.description.value as string, "Open", today);
 
     this.dialogRef.close();
   }

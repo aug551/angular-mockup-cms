@@ -37,10 +37,17 @@ export class CaseService {
   }
 
   addCase(requestedBy: number, typeOfService: number, assignedContractors: number, building: string,
-    unit: string, description: string, status: string): void {
+    unit: string, description: string, status: string, date_time_now: number): void {
     let numId = this.cases.value.length + 1;
     let numIdPadded = numId.toString().padStart(5, "0");
     let newId = "SRV" + numIdPadded;
+    let journal = [{
+      created_on: new Date().getTime(),
+      created_by: requestedBy,
+      comment: "Case created."
+    }];
+
+
     let _case = {
       id: newId,
       requestedBy,
@@ -49,7 +56,10 @@ export class CaseService {
       building,
       unit,
       description,
-      status
+      status,
+      created_on: date_time_now,
+      updated_on: date_time_now,
+      journal
     }
     let temp = this.cases.value;
     temp.push(_case);

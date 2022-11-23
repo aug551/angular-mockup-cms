@@ -1,4 +1,5 @@
 import { Component, Inject, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Contractor, ContractorsService } from 'src/app/services/contractors/contractors.service';
 import { ServicesService } from 'src/app/services/services/services.service';
@@ -29,6 +30,12 @@ export class ServiceSummaryDialogComponent implements OnInit {
     this.typeOfService = this.servicesService.getServiceById(this.data.case.typeOfService);
     this.assignedContractors = this.contractorsService.getContractorById(this.data.case.assignedContractors);
 
+    this.updateComments()
+
+  }
+
+  updateComments() {
+    this.comments = [];
     if (this.data.case.journal)
       this.data.case.journal.forEach((comment: any) => {
         let created_by: Contractor | User;
@@ -51,7 +58,6 @@ export class ServiceSummaryDialogComponent implements OnInit {
       let bd = new Date(b.created_on);
       return bd.getTime() - ad.getTime();
     });
-
   }
 
   getCommentByName(created_by: Contractor | User) {
@@ -59,5 +65,16 @@ export class ServiceSummaryDialogComponent implements OnInit {
       return (created_by as User).firstName + " " + (created_by as User).lastName;
     }
     return (created_by as Contractor).name;
+  }
+
+  postComment(newComment: string) {
+    let commentObj = {
+      created_on: new Date().getTime(),
+      created_by: this.requestedBy.id,
+      comment: newComment
+    };
+
+    this.data.case.journal.push(commentObj);
+    this.updateComments();
   }
 }

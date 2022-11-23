@@ -23,6 +23,8 @@ import { ServiceFormComponent } from './components/dialogs/service-form/service-
 import { MatSelectModule } from '@angular/material/select';
 import { UserProfileDialogComponent } from './components/dialogs/user-profile-dialog/user-profile-dialog.component';
 import { ServiceSummaryDialogComponent } from './components/dialogs/service-summary-dialog/service-summary-dialog.component';
+import { HistoryComponent } from './components/history/history/history.component';
+import { ServicesTableComponent } from './components/services-table/services-table.component';
 
 
 @NgModule({
@@ -36,6 +38,8 @@ import { ServiceSummaryDialogComponent } from './components/dialogs/service-summ
     ServiceFormComponent,
     UserProfileDialogComponent,
     ServiceSummaryDialogComponent,
+    HistoryComponent,
+    ServicesTableComponent,
   ],
   imports: [
     BrowserModule,

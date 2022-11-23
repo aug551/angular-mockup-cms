@@ -13,25 +13,13 @@ import { UserProfileDialogComponent } from '../dialogs/user-profile-dialog/user-
 })
 export class DashboardComponent implements OnInit {
   @Input() user!: User;
-  dataSource: any;
   changeRequested: any = {};
   hasChanges: Boolean = false;
 
   constructor(private casesService: CaseService, public dialog: MatDialog) { }
 
   ngOnInit(): void {
-    this.dataSource = this.casesService.getCasesByRequestedUser(this.user.id!);
-    console.log(this.dataSource[0].id.substring(3));
-    this.dataSource.sort((a: Case, b: Case) => {
-      let case1 = parseInt(a.id.substring(3));
-      let case2 = parseInt(b.id.substring(3));
-
-      return case2 - case1;
-    });
   }
-
-  displayedColumns: string[] = ['number', 'short_description', 'status']
-
 
   editUser() {
     const dialogRef = this.dialog.open(UserProfileDialogComponent, {
@@ -55,18 +43,6 @@ export class DashboardComponent implements OnInit {
         this.hasChanges = false;
         this.changeRequested = {};
       }
-    });
-  }
-
-  openCaseSummary(_case: any) {
-
-    const dialogRef = this.dialog.open(ServiceSummaryDialogComponent, {
-      width: '60%',
-      data: { case: _case }
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-
     });
   }
 }

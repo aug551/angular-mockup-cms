@@ -1,0 +1,17 @@
+.table-container {
+    width: 100%;
+
+    table {
+        width: 100%;
+    }
+}
+
+.caseRow:hover {
+    background-color: #D5D5D5;
+    cursor: pointer;
+}
+
+.mat-header-cell {
+    font-weight: bold;
+    color: #111;
+}
