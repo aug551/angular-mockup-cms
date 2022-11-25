@@ -36,6 +36,17 @@ export class ServiceSummaryDialogComponent implements OnInit {
 
   updateComments() {
     this.comments = [];
+
+    this.data.case.journal.sort((a: any, b: any) => {
+      return b.created_on - a.created_on;
+    });
+
+    // this.comments.sort((a, b): any => {
+    //   let ad = new Date(a.created_on);
+    //   let bd = new Date(b.created_on);
+    //   return bd.getTime() - ad.getTime();
+    // });
+
     if (this.data.case.journal)
       this.data.case.journal.forEach((comment: any) => {
         let created_by: Contractor | User;
@@ -52,12 +63,6 @@ export class ServiceSummaryDialogComponent implements OnInit {
           comment: comment.comment
         });
       });
-
-    this.comments.sort((a, b): any => {
-      let ad = new Date(a.created_on);
-      let bd = new Date(b.created_on);
-      return bd.getTime() - ad.getTime();
-    });
   }
 
   getCommentByName(created_by: Contractor | User) {

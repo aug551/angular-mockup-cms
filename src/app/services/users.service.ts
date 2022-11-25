@@ -18,14 +18,14 @@ export type User = {
 })
 export class UsersService {
   user: BehaviorSubject<User> = new BehaviorSubject<User>({
-    id: 1,
-    email: 'john.doe@example.com',
-    password: 'password',
-    firstName: 'John',
-    lastName: 'Doe',
-    phone_number: 1231231234,
-    building: 'Areve 1',
-    unit: '101',
+    // id: 1,
+    // email: 'john.doe@example.com',
+    // password: 'password',
+    // firstName: 'John',
+    // lastName: 'Doe',
+    // phone_number: 1231231234,
+    // building: 'Areve 1',
+    // unit: '101',
   });
 
   // user: BehaviorSubject<User> = new BehaviorSubject<User>({
@@ -45,7 +45,15 @@ export class UsersService {
   }
 
   getUserById(userId: number): User {
-    return users.users.find(user => user.id = userId) as User;
+    // let user = users.users.find(user => user.id = userId) as User;
+
+    for (let i = 0; i < users.users.length; i++) {
+      if (users.users[i].id == userId) {
+        return users.users[i];
+      }
+    }
+
+    return {};
   }
 
 

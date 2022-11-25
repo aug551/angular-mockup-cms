@@ -33,6 +33,7 @@ export class CaseService {
   }
 
   setCases(cases: Case[]): void {
+    console.log(cases);
     this.cases.next(cases);
   }
 
