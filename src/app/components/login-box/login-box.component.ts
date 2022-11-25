@@ -9,8 +9,8 @@ import { User, UsersService } from 'src/app/services/users.service';
 })
 export class LoginBoxComponent implements OnInit {
   loginForm!: FormGroup;
-  email = new FormControl(null, [Validators.required, Validators.email]);
-  password = new FormControl(null, [Validators.required]);
+  email = new FormControl("", [Validators.required, Validators.email]);
+  password = new FormControl("", [Validators.required]);
   invalidAccount = false;
   user!: User;
 
@@ -23,7 +23,6 @@ export class LoginBoxComponent implements OnInit {
     });
 
     this.usersService.getUser().subscribe((user) => {
-      console.log(user);
       this.user = user;
     });
   }
@@ -45,7 +44,12 @@ export class LoginBoxComponent implements OnInit {
   }
 
   login() {
-    this.usersService.login(String(this.email.value), String(this.password.value))
+    let res = this.usersService.login(String(this.email.value), String(this.password.value));
+    if (res == 400) this.loginFailed();
+  }
+
+  loginFailed() {
+    this.invalidAccount = true;
   }
 
 }

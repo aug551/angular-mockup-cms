@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable, BehaviorSubject } from 'rxjs';
+import { Observable, BehaviorSubject, iif } from 'rxjs';
 import users from '../data/users.json';
 
 export type User = {
@@ -79,7 +79,7 @@ export class UsersService {
     this.user.next(tempUser);
   }
 
-  login(email: string, password: string): User | undefined {
+  login(email: string, password: string): User | number {
     let loggedUser;
 
     for (let user of users.users) {
@@ -88,6 +88,10 @@ export class UsersService {
         this.setUser(user);
         break;
       }
+    }
+
+    if (!loggedUser) {
+      return 400;
     }
 
     return loggedUser;

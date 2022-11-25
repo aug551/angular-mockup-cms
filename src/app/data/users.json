@@ -19,6 +19,16 @@
             "phone_number": 1231231234,
             "building": "Areve 1",
             "unit": "102"
+        },
+        {
+            "id": 3,
+            "email": "email@example.com",
+            "password": "password",
+            "firstName": "John",
+            "lastName": "Doe",
+            "phone_number": 5141234321,
+            "building": "Areve 2",
+            "unit": "202"
         }
     ]
 }
