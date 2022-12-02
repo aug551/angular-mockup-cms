@@ -25,6 +25,7 @@ import { UserProfileDialogComponent } from './components/dialogs/user-profile-di
 import { ServiceSummaryDialogComponent } from './components/dialogs/service-summary-dialog/service-summary-dialog.component';
 import { HistoryComponent } from './components/history/history/history.component';
 import { ServicesTableComponent } from './components/services-table/services-table.component';
+import { ContactUsComponent } from './components/contact-us/contact-us.component';
 
 
 @NgModule({
@@ -40,6 +41,7 @@ import { ServicesTableComponent } from './components/services-table/services-tab
     ServiceSummaryDialogComponent,
     HistoryComponent,
     ServicesTableComponent,
+    ContactUsComponent,
   ],
   imports: [
     BrowserModule,

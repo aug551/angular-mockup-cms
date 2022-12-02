@@ -1,0 +1,45 @@
+<div class="contact-us-page">
+    <form>
+        name, email, phone, message
+    </form>
+    <div class="info-container">
+        <div class="schedule-container">
+            <div class="title">
+                <h2>Office Schedule</h2>
+            </div>
+            <div class="schedule">
+                <div class="day-schedule" *ngFor="let day of daysOfWeek">
+                    <span class="day-of-week">{{day.dayOfWeek}} </span>
+                    <span class="day-schedule" *ngIf="day.daySchedule.startHour != ''">{{day.daySchedule.startHour}} -
+                        {{day.daySchedule.endHour}}</span>
+                    <span class="day-schedule" *ngIf="day.daySchedule.startHour == ''">Closed</span>
+                </div>
+            </div>
+        </div>
+        <div class="contact-container">
+            <div class="title">
+                <h2>Contact-Us</h2>
+            </div>
+
+            <div class="contact-types-container">
+                <div class="contact-type">
+                    <span>EMAIL </span><span class="contact"> <a href="mailto:app.name@example.com"><i
+                                class="fa-solid fa-envelope"></i>app.name@example.com</a></span>
+                </div>
+
+                <div class="contact-type">
+                    <span>PHONE </span><span class="contact"><a href="tel:+5141111234"><i
+                                class="fa-solid fa-phone"></i>(514)
+                            111-1234</a></span>
+                </div>
+
+                <div class="contact-type">
+                    <span>ADDRESS</span><span class="contact"><i class="fa-solid fa-address-card"></i>123 Someplace
+                        Street, Montreal</span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>

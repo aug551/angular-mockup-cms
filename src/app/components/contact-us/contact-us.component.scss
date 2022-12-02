@@ -1,0 +1,77 @@
+.info-container {
+    text-align: center;
+    font-size: 1.2rem;
+    line-height: 1.5rem;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    min-width: 685px;
+
+
+    .title h2 {
+        font-size: 1.75rem;
+        line-height: 2rem;
+        margin-bottom: 1.4em;
+    }
+
+    .schedule-container {
+        width: 49%;
+        border-right: 1.75px solid #D5D5D5;
+        padding: 2em 0;
+
+        .schedule {
+            width: 60%;
+            margin: auto;
+
+            .day-schedule {
+                display: flex;
+                justify-content: space-between;
+            }
+        }
+    }
+
+    .contact-container {
+        width: 49%;
+        min-width: 390px;
+
+        .contact-types-container {
+            width: 80%;
+            margin: auto;
+        }
+
+        .contact-type {
+            display: flex;
+            justify-content: space-between;
+            line-height: 2.4rem;
+
+            .fa-envelope,
+            .fa-phone,
+            .fa-address-card {
+                margin-right: 12px;
+                font-size: 1.5rem;
+            }
+        }
+    }
+}
+
+@media (max-width: 828px) {
+    .schedule-container {
+        border-right: none !important;
+        width: 100%;
+
+        .schedule {
+            width: 100%;
+        }
+    }
+
+    .contact-container {
+        width: 100% !important;
+
+        .contact-types-container {
+            min-width: 0 !important;
+        }
+    }
+}

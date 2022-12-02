@@ -43,6 +43,7 @@
             <app-services *ngIf="this.activeElement == 2" [user]="this.user"></app-services>
             <app-history *ngIf="this.activeElement == 3" [user]="this.user" (changePageEvent)="navigateToPage($event)">
             </app-history>
+            <app-contact-us *ngIf="this.activeElement==4"></app-contact-us>
         </mat-drawer-content>
 
     </mat-drawer-container>
