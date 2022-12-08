@@ -1,21 +1,37 @@
 <div class="contact-us-page">
-    <form>
-        name, email, phone, message
-    </form>
-    <div class="info-container">
-        <div class="schedule-container">
-            <div class="title">
-                <h2>Office Schedule</h2>
+    <div class="contact-types">
+        <form class="form-container" [formGroup]="this.contactForm"
+            (ngSubmit)="this.contactForm.valid && this.sendMessage()">
+
+            <mat-label>
+                <h2>Send us a message</h2>
+            </mat-label>
+
+            <div class="row">
+                <mat-form-field appearance="fill" class="form-field">
+                    <mat-label>Name</mat-label>
+                    <input matInput type="text" [formControl]="this.name" />
+                </mat-form-field>
+                <mat-form-field appearance="fill" class="form-field">
+                    <mat-label>Phone number</mat-label>
+                    <input matInput type="tel" [formControl]="this.phone" />
+                </mat-form-field>
             </div>
-            <div class="schedule">
-                <div class="day-schedule" *ngFor="let day of daysOfWeek">
-                    <span class="day-of-week">{{day.dayOfWeek}} </span>
-                    <span class="day-schedule" *ngIf="day.daySchedule.startHour != ''">{{day.daySchedule.startHour}} -
-                        {{day.daySchedule.endHour}}</span>
-                    <span class="day-schedule" *ngIf="day.daySchedule.startHour == ''">Closed</span>
-                </div>
-            </div>
-        </div>
+
+            <mat-form-field appearance="fill" class="form-field">
+                <mat-label>Email</mat-label>
+                <input matInput type="email" [formControl]="this.email" />
+            </mat-form-field>
+
+            <mat-form-field appearance="fill" class="form-field">
+                <mat-label>Message</mat-label>
+                <textarea matInput [formControl]="this.message" cdkTextareaAutosize #autosize="cdkTextareaAutosize"
+                    cdkAutoSizeMinRows="1" cdkAutosizeMaxRows="8" [style.minHeight]="'128px'"></textarea>
+            </mat-form-field>
+
+            <button mat-raised-button color="primary" type="submit">Submit</button>
+        </form>
+
         <div class="contact-container">
             <div class="title">
                 <h2>Contact-Us</h2>
@@ -37,9 +53,30 @@
                     <span>ADDRESS</span><span class="contact"><i class="fa-solid fa-address-card"></i>123 Someplace
                         Street, Montreal</span>
                 </div>
+
+                <div class="contact-type" id="address">
+                    Map here
+                </div>
             </div>
 
         </div>
+    </div>
+
+    <div class="info-container">
+        <div class="schedule-container">
+            <div class="title">
+                <h2>Office Schedule</h2>
+            </div>
+            <div class="schedule">
+                <div class="day-schedule" *ngFor="let day of daysOfWeek">
+                    <span class="day-of-week">{{day.dayOfWeek}} </span>
+                    <span class="day-schedule" *ngIf="day.daySchedule.startHour != ''">{{day.daySchedule.startHour}} -
+                        {{day.daySchedule.endHour}}</span>
+                    <span class="day-schedule" *ngIf="day.daySchedule.startHour == ''">Closed</span>
+                </div>
+            </div>
+        </div>
+
     </div>
 
 </div>

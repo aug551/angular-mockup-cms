@@ -1,45 +1,52 @@
-.info-container {
-    text-align: center;
-    font-size: 1.2rem;
-    line-height: 1.5rem;
-
+.contact-types {
     display: flex;
     flex-direction: row;
-    align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     flex-wrap: wrap;
-    min-width: 685px;
+    padding: 1.4rem;
 
-
-    .title h2 {
-        font-size: 1.75rem;
-        line-height: 2rem;
-        margin-bottom: 1.4em;
+    h2 {
+        font-size: 1.8rem;
+        color: hsl(258, 100%, 35%);
     }
 
-    .schedule-container {
-        width: 49%;
-        border-right: 1.75px solid #D5D5D5;
-        padding: 2em 0;
+    .form-container {
+        display: flex;
+        flex-direction: column;
+        width: 47%;
+        min-width: 261px;
+        padding-right: 1.4rem;
 
-        .schedule {
-            width: 60%;
-            margin: auto;
 
-            .day-schedule {
-                display: flex;
-                justify-content: space-between;
+        .row {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-between;
+
+            .form-field {
+                width: 48%;
             }
         }
     }
 
     .contact-container {
-        width: 49%;
+        font-size: 1.2rem;
+        line-height: 1.5rem;
+        width: 47%;
         min-width: 390px;
+        padding-left: 1.4rem;
 
         .contact-types-container {
-            width: 80%;
-            margin: auto;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+
+        #address {
+            border: 2px solid #d5d5d5;
+            min-height: 12.5em;
         }
 
         .contact-type {
@@ -57,21 +64,54 @@
     }
 }
 
-@media (max-width: 828px) {
+
+
+.info-container {
+    // border-top: 2px solid hsl(258, 100%, 35%);
+    background-color: hsl(258, 100%, 25%);
+    color: white;
+    text-align: center;
+    font-size: 1.2rem;
+    line-height: 1.5rem;
+    padding: 1.4rem;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+
+
+    .title h2 {
+        font-size: 1.75rem;
+        line-height: 2rem;
+        margin-bottom: 1.4em;
+    }
+
     .schedule-container {
-        border-right: none !important;
-        width: 100%;
+        width: 80%;
+        max-width: 495px;
+        padding: 2em 0;
 
         .schedule {
-            width: 100%;
+            margin: auto;
+
+            .day-schedule {
+                display: flex;
+                justify-content: space-between;
+            }
         }
     }
 
-    .contact-container {
-        width: 100% !important;
+}
 
-        .contact-types-container {
-            min-width: 0 !important;
+@media (max-width: 940px) {
+    .contact-types {
+        flex-direction: column;
+
+        .form-container,
+        .contact-container {
+            width: 100%;
+            padding: 0;
         }
     }
 }
