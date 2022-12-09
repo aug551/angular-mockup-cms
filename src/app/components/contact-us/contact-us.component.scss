@@ -1,3 +1,11 @@
+.contact-us-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    gap: 3rem;
+}
+
 .contact-types {
     display: flex;
     flex-direction: row;
@@ -73,12 +81,14 @@
     text-align: center;
     font-size: 1.2rem;
     line-height: 1.5rem;
-    padding: 1.4rem;
+    width: 100%;
+    height: 100%;
 
     display: flex;
     flex-direction: column;
     align-items: center;
     margin: auto;
+
 
 
     .title h2 {
@@ -107,6 +117,7 @@
 @media (max-width: 940px) {
     .contact-types {
         flex-direction: column;
+        gap: 20px;
 
         .form-container,
         .contact-container {
