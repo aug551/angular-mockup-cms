@@ -26,6 +26,8 @@ import { ServiceSummaryDialogComponent } from './components/dialogs/service-summ
 import { HistoryComponent } from './components/history/history/history.component';
 import { ServicesTableComponent } from './components/services-table/services-table.component';
 import { ContactUsComponent } from './components/contact-us/contact-us.component';
+import { ContractorPageComponent } from './contractor-page/contractor-page.component';
+import { ServiceSummaryComponent } from './components/service-summary/service-summary.component';
 
 
 @NgModule({
@@ -42,6 +44,8 @@ import { ContactUsComponent } from './components/contact-us/contact-us.component
     HistoryComponent,
     ServicesTableComponent,
     ContactUsComponent,
+    ContractorPageComponent,
+    ServiceSummaryComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,12 +1,18 @@
-<div class="login-page" *ngIf="!this.user.id">
-    <div class="login-container">
-        <div class="title-container">
-            <h1>(App title)</h1>
+<div *ngIf="!this.href.includes('contractor')">
+    <div class="login-page" *ngIf="!this.user.id">
+        <div class="login-container">
+            <div class="title-container">
+                <h1>(App title)</h1>
+            </div>
+            <app-login-box></app-login-box>
         </div>
-        <app-login-box></app-login-box>
+    </div>
+
+    <div class="homepage-page" *ngIf="this.user.id">
+        <app-homepage [user]="this.user"></app-homepage>
     </div>
 </div>
 
-<div class="homepage-page" *ngIf="this.user.id">
-    <app-homepage [user]="this.user"></app-homepage>
+<div *ngIf="this.href.includes('contractor')">
+    <app-contractor-page></app-contractor-page>
 </div>

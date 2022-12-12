@@ -7,14 +7,17 @@ import { User, UsersService } from 'src/app/services/users.service';
   styleUrls: ['./layout.component.scss']
 })
 export class LayoutComponent implements OnInit {
-
   user!: User;
+  href = window.location.href;
+
   constructor(private usersService: UsersService) { }
 
   ngOnInit(): void {
     this.usersService.getUser().subscribe((user) => {
       this.user = user;
     })
+
+
   }
 
 }
