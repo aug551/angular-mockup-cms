@@ -28,7 +28,8 @@ import { ServicesTableComponent } from './components/services-table/services-tab
 import { ContactUsComponent } from './components/contact-us/contact-us.component';
 import { ContractorPageComponent } from './contractor-page/contractor-page.component';
 import { ServiceSummaryComponent } from './components/service-summary/service-summary.component';
-
+import { MatDatepickerModule } from '@angular/material/datepicker'
+import { MatNativeDateModule } from '@angular/material/core';
 
 @NgModule({
   declarations: [
@@ -60,9 +61,11 @@ import { ServiceSummaryComponent } from './components/service-summary/service-su
     MatTableModule,
     MatExpansionModule,
     MatDialogModule,
-    MatSelectModule
+    MatDatepickerModule,
+    MatSelectModule,
+    MatNativeDateModule
   ],
-  providers: [],
+  providers: [MatNativeDateModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

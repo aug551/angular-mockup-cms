@@ -17,16 +17,7 @@ export type User = {
   providedIn: 'root'
 })
 export class UsersService {
-  user: BehaviorSubject<User> = new BehaviorSubject<User>({
-    id: 1,
-    email: 'john.doe@example.com',
-    password: 'password',
-    firstName: 'John',
-    lastName: 'Doe',
-    phone_number: 1231231234,
-    building: 'Areve 1',
-    unit: '101',
-  });
+  user: BehaviorSubject<User> = new BehaviorSubject<User>({});
 
   // user: BehaviorSubject<User> = new BehaviorSubject<User>({
   //   id: 1,

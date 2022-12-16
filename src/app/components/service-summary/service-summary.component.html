@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row" [ngClass]="this.view">
     <div class="field-container">
         <div class="field-title">
             <label for="requested-by">Requested by</label>
@@ -18,7 +18,7 @@
 
 </div>
 
-<div class="row">
+<div class="row" [ngClass]="this.view">
 
     <div class="field-container">
         <div class="field-title">
@@ -39,8 +39,7 @@
 </div>
 
 
-<div class="row">
-
+<div class="row" [ngClass]="this.view">
     <div class="field-container">
         <div class="field-title">
             <label for="unit">Unit No.</label>
@@ -56,20 +55,39 @@
         <div class="field-value" *ngIf="this.view == 'tenant'">
             <span>{{this.case.status}}</span>
         </div>
-        <div class="field-value" *ngIf="this.view=='tenant'">
+        <div class="field-value" *ngIf="this.view !='tenant'">
             <mat-form-field appearance="fill">
-                <mat-select>
-                    <mat-option *ngFor="let status in this.statusOpts" [value]="status.value">
-                        {{status.viewValue}}
+                <mat-label>Status</mat-label>
+                <mat-select [(value)]="this.currentStatus">
+                    <mat-option *ngFor="let statOp of statusOpts" [value]="statOp.value">
+                        {{statOp.value}}
                     </mat-option>
                 </mat-select>
             </mat-form-field>
         </div>
     </div>
-
 </div>
 
-<div class="row">
+<div class="row" [ngClass]="this.view">
+    <div class="field-container">
+        <div class="field-title">
+            <label for="unit">Requested on</label>
+        </div>
+        <div class="field-value">
+            <span>{{this.requestedOn}}</span>
+        </div>
+    </div>
+    <div class="field-container">
+        <div class="field-title">
+            <label for="unit">Updated on</label>
+        </div>
+        <div class="field-value">
+            <span>{{this.updatedOn}}</span>
+        </div>
+    </div>
+</div>
+
+<div class="row" [ngClass]="this.view">
     <div class="field-container">
         <div class="field-title">
             <label for="description">Description</label>
@@ -77,6 +95,18 @@
         <div class="field-value">
             <span>{{this.case.description}}</span>
         </div>
+    </div>
+</div>
+
+<div class="row contact-container" *ngIf="this.view == 'contractor'">
+    <div class="field-container">
+        <div class="field-title">
+            <label for="contacts">Contact client</label>
+        </div>
+    </div>
+    <div class="contact-types">
+        <a href="mailto:{{this.requestedBy.email}}"><i class="fa-solid fa-envelope"></i></a>
+        <a href="tel:{{this.requestedBy.phone_number}}"><i class="fa-solid fa-phone"></i></a>
     </div>
 </div>
 

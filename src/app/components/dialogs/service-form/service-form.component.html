@@ -44,7 +44,16 @@
                         </mat-option>
                     </mat-select>
                 </mat-form-field>
-                <div class="formatter"></div>
+                <mat-form-field appearance="fill" class="form-field date_container">
+                    <mat-label>Preferred Date</mat-label>
+                    <input matInput [matDatepicker]="picker">
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+            </div>
+
+            <div class="field-row">
+
             </div>
 
             <div class="field-row">

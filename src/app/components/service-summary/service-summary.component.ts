@@ -1,5 +1,4 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Case } from 'src/app/services/case/case.service';
 import { Contractor, ContractorsService } from 'src/app/services/contractors/contractors.service';
 import { ServicesService } from 'src/app/services/services/services.service';
 import { User, UsersService } from 'src/app/services/users.service';
@@ -17,12 +16,16 @@ export class ServiceSummaryComponent implements OnInit {
   typeOfService!: Service;
   assignedContractors!: Contractor;
   comments: { created_on: string, created_by: Contractor | User, comment: string }[];
+  currentStatus = "Open";
+  requestedOn = "";
+  updatedOn = "";
+
   statusOpts = [
-    { value: 'wip', viewValue: 'WIP' },
-    { value: 'open', viewValue: 'Open' },
-    { value: 'on_hold', viewValue: 'On Hold' },
-    { value: 'cancelled', viewValue: 'Cancelled' },
-    { value: 'closed', viewValue: 'Closed' }
+    { value: 'WIP' },
+    { value: 'Open' },
+    { value: 'On Hold' },
+    { value: 'Cancelled' },
+    { value: 'Closed' }
   ];
 
 
@@ -33,10 +36,12 @@ export class ServiceSummaryComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.currentStatus = this.case.status;
+    this.requestedOn = new Date(this.case.created_on).toDateString();
+    this.updatedOn = new Date(this.case.updated_on).toDateString();
     this.requestedBy = this.usersService.getUserById(this.case.requestedBy);
     this.typeOfService = this.servicesService.getServiceById(this.case.typeOfService);
     this.assignedContractors = this.contractorsService.getContractorById(this.case.assignedContractors);
-
     this.updateComments()
   }
 
